@@ -1,45 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Fun Chatbot Box</title>
-<style>
-/* Chatbot container styling */
-.container {
-  background: linear-gradient(135deg, #ffecb3, #c8e6c9); /* warm + fresh colors */
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snarky Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Floating emoji animation */
+    .container {
+  background: linear-gradient(135deg, #ffe6e6, #e6f0ff);
   border: 8px dashed transparent;
   border-radius: 20px;
   padding: 20px;
   max-width: 500px;
-  margin: 50px auto;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-
-  /* Fun wavy border using SVG */
+  margin: auto;
+  
+  /* Makes the dashed border look uneven with an image */
   border-image: url('data:image/svg+xml;utf8,\
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">\
-    <path d="M0,10 Q5,0 10,10 T20,10" stroke="blue" stroke-width="3" fill="none"/>\
+    <path d="M0,10 Q5,0 10,10 T20,10" stroke="red" stroke-width="3" fill="none"/>\
   </svg>') 30 round;
 
-  /* Wobble animation */
+  /* Slight wobble effect */
   animation: borderWobble 3s infinite ease-in-out;
 }
 
-/* Animation for undefined/wobbly effect */
 @keyframes borderWobble {
   0% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(0.5deg) scale(1.02); }
   100% { transform: rotate(0deg) scale(1); }
 }
-</style>
+
+    .emoji {
+      position: fixed;
+      bottom: -50px;
+      font-size: 2rem;
+      animation: floatUp 8s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Background */
+    body {
+      background: radial-gradient(circle at top left, #ffecd2, #fcb69f, #ff9a9e);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Creative Chat Box with “manly” bold style */
+    .container {
+      background: linear-gradient(135deg, #ffdde1, #fcb69f, #ff9a9e, #fad0c4);
+      padding: 20px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 100%;
+      z-index: 1;
+      position: relative;
+      border: 8px solid transparent;
+      border-image: linear-gradient(45deg, #ff6f61, #ffcc00, #00c6ff, #0072ff) 1;
+      backdrop-filter: blur(12px);
+      animation: borderGlow 3s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0% { border-image-source: linear-gradient(45deg, #ff6f61, #ffcc00, #00c6ff, #0072ff); }
+      50% { border-image-source: linear-gradient(45deg, #0072ff, #00c6ff, #ffcc00, #ff6f61); }
+      100% { border-image-source: linear-gradient(45deg, #ff6f61, #ffcc00, #00c6ff, #0072ff); }
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    }
+
+    .controls {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #clearBtn {
+      background: linear-gradient(90deg, #ff6f61, #ffcc00);
+      border: none;
+      padding: 8px 15px;
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    #clearBtn:hover {
+      transform: scale(1.1);
+    }
+
+    .chat {
+      background: rgba(255,255,255,0.4);
+      padding: 15px;
+      border-radius: 15px;
+      height: 300px;
+      overflow-y: auto;
+      border: 3px dashed rgba(255,255,255,0.8);
+    }
+
+    .chat-form {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    #userInput {
+      flex: 1;
+      padding: 10px;
+      border-radius: 12px 0 0 12px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    #sendBtn {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 0 12px 12px 0;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+    #sendBtn:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
+
+<!-- Floating emojis -->
+<div class="emoji" style="left: 5%;">🚀</div>
+<div class="emoji" style="left: 15%; animation-delay: 1s;">⚡</div>
+<div class="emoji" style="left: 25%; animation-delay: 2s;">🏎️</div>
+<div class="emoji" style="left: 35%; animation-delay: 3s;">🔥</div>
+<div class="emoji" style="left: 45%; animation-delay: 4s;">🛡️</div>
+<div class="emoji" style="left: 55%; animation-delay: 5s;">🏆</div>
+<div class="emoji" style="left: 65%; animation-delay: 6s;">💥</div>
+<div class="emoji" style="left: 75%; animation-delay: 7s;">🐉</div>
+<div class="emoji" style="left: 85%; animation-delay: 8s;">⚔️</div>
+<div class="emoji" style="left: 95%; animation-delay: 9s;">🦸‍♂️</div>
+
 <body>
+  <main class="container">
+    <h1>KIRA BOT 🤖</h1>
 
-<div class="container">
-  🤖 Hi there! I’m your chatbot — ready to chat and have fun!
-</div>
+    <div class="controls">
+      <button id="clearBtn">Clear chat</button>
+    </div>
 
+    <section id="chat" class="chat" aria-live="polite"></section>
+
+    <form id="chatForm" class="chat-form" onsubmit="return false;">
+      <input id="userInput" autocomplete="off" placeholder="Say something epic..." />
+      <button id="sendBtn">Send</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
