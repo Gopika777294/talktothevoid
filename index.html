@@ -5,13 +5,46 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Snarky Chatbot</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Basic floating animation */
+    .emoji {
+      position: fixed;
+      bottom: -50px;
+      font-size: 2rem;
+      animation: floatUp 8s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
-<!-- Floating fruit emojis -->
-<div class="fruit" style="left: 10%;">🍎</div>
-<div class="fruit" style="left: 30%; animation-delay: 2s;">🍌</div>
-<div class="fruit" style="left: 50%; animation-delay: 4s;">🍓</div>
-<div class="fruit" style="left: 70%; animation-delay: 6s;">🍍</div>
-<div class="fruit" style="left: 90%; animation-delay: 8s;">🍇</div>
+
+<!-- Floating emojis -->
+<div class="emoji" style="left: 5%;">🍎</div>
+<div class="emoji" style="left: 15%; animation-delay: 1s;">🍌</div>
+<div class="emoji" style="left: 25%; animation-delay: 2s;">🍓</div>
+<div class="emoji" style="left: 35%; animation-delay: 3s;">🍍</div>
+<div class="emoji" style="left: 45%; animation-delay: 4s;">🍇</div>
+<div class="emoji" style="left: 55%; animation-delay: 5s;">🥭</div>
+<div class="emoji" style="left: 65%; animation-delay: 6s;">🍉</div>
+<div class="emoji" style="left: 75%; animation-delay: 7s;">🍒</div>
+<div class="emoji" style="left: 85%; animation-delay: 8s;">🍑</div>
+<div class="emoji" style="left: 95%; animation-delay: 9s;">🍋</div>
+
+<!-- Extra fun emojis -->
+<div class="emoji" style="left: 12%; animation-delay: 2.5s;">💖</div>
+<div class="emoji" style="left: 28%; animation-delay: 4.5s;">⭐</div>
+<div class="emoji" style="left: 48%; animation-delay: 6.5s;">🌸</div>
+<div class="emoji" style="left: 68%; animation-delay: 8.5s;">🦋</div>
+<div class="emoji" style="left: 88%; animation-delay: 10.5s;">🌟</div>
 
 <body>
   <main class="container">
@@ -32,5 +65,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
