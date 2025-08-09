@@ -7,30 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Floating emoji animation */
-    .container {
-  background: linear-gradient(135deg, #ffe6e6, #e6f0ff);
-  border: 8px dashed transparent;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 500px;
-  margin: auto;
-  
-  /* Makes the dashed border look uneven with an image */
-  border-image: url('data:image/svg+xml;utf8,\
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">\
-    <path d="M0,10 Q5,0 10,10 T20,10" stroke="red" stroke-width="3" fill="none"/>\
-  </svg>') 30 round;
-
-  /* Slight wobble effect */
-  animation: borderWobble 3s infinite ease-in-out;
-}
-
-@keyframes borderWobble {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(0.5deg) scale(1.02); }
-  100% { transform: rotate(0deg) scale(1); }
-}
-
     .emoji {
       position: fixed;
       bottom: -50px;
