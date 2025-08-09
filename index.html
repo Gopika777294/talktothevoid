@@ -20,9 +20,9 @@
       100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
     }
 
-    /* Creative Chat Box */
+    /* Background */
     body {
-      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      background: radial-gradient(circle at top left, #ffecd2, #fcb69f, #ff9a9e);
       font-family: 'Comic Sans MS', cursive, sans-serif;
       margin: 0;
       padding: 0;
@@ -32,24 +32,34 @@
       height: 100vh;
     }
 
+    /* Creative Chat Box with “manly” bold style */
     .container {
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      background: linear-gradient(135deg, #ffdde1, #fcb69f, #ff9a9e, #fad0c4);
       padding: 20px;
       border-radius: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
       max-width: 500px;
       width: 100%;
       z-index: 1;
       position: relative;
-      border: 4px dashed rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
+      border: 8px solid transparent;
+      border-image: linear-gradient(45deg, #ff6f61, #ffcc00, #00c6ff, #0072ff) 1;
+      backdrop-filter: blur(12px);
+      animation: borderGlow 3s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0% { border-image-source: linear-gradient(45deg, #ff6f61, #ffcc00, #00c6ff, #0072ff); }
+      50% { border-image-source: linear-gradient(45deg, #0072ff, #00c6ff, #ffcc00, #ff6f61); }
+      100% { border-image-source: linear-gradient(45deg, #ff6f61, #ffcc00, #00c6ff, #0072ff); }
     }
 
     h1 {
       text-align: center;
       color: #fff;
-      font-size: 2.2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
     }
 
     .controls {
@@ -58,23 +68,28 @@
     }
 
     #clearBtn {
-      background: #ff6f91;
+      background: linear-gradient(90deg, #ff6f61, #ffcc00);
       border: none;
       padding: 8px 15px;
       color: white;
-      border-radius: 12px;
+      border-radius: 15px;
       cursor: pointer;
       font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    #clearBtn:hover {
+      transform: scale(1.1);
     }
 
     .chat {
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.4);
       padding: 15px;
       border-radius: 15px;
       height: 300px;
       overflow-y: auto;
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 3px dashed rgba(255,255,255,0.8);
     }
 
     .chat-form {
@@ -85,39 +100,40 @@
     #userInput {
       flex: 1;
       padding: 10px;
-      border-radius: 10px 0 0 10px;
+      border-radius: 12px 0 0 12px;
       border: none;
       outline: none;
+      font-size: 1rem;
     }
 
     #sendBtn {
-      background: #6a82fb;
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 0 10px 10px 0;
+      border-radius: 0 12px 12px 0;
       cursor: pointer;
       font-weight: bold;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+    #sendBtn:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 
 <!-- Floating emojis -->
-<div class="emoji" style="left: 5%;">🍎</div>
-<div class="emoji" style="left: 15%; animation-delay: 1s;">🍌</div>
-<div class="emoji" style="left: 25%; animation-delay: 2s;">🍓</div>
-<div class="emoji" style="left: 35%; animation-delay: 3s;">🍍</div>
-<div class="emoji" style="left: 45%; animation-delay: 4s;">🍇</div>
-<div class="emoji" style="left: 55%; animation-delay: 5s;">🥭</div>
-<div class="emoji" style="left: 65%; animation-delay: 6s;">🍉</div>
-<div class="emoji" style="left: 75%; animation-delay: 7s;">🍒</div>
-<div class="emoji" style="left: 85%; animation-delay: 8s;">🍑</div>
-<div class="emoji" style="left: 95%; animation-delay: 9s;">🍋</div>
-<div class="emoji" style="left: 12%; animation-delay: 2.5s;">💖</div>
-<div class="emoji" style="left: 28%; animation-delay: 4.5s;">⭐</div>
-<div class="emoji" style="left: 48%; animation-delay: 6.5s;">🌸</div>
-<div class="emoji" style="left: 68%; animation-delay: 8.5s;">🦋</div>
-<div class="emoji" style="left: 88%; animation-delay: 10.5s;">🌟</div>
+<div class="emoji" style="left: 5%;">🚀</div>
+<div class="emoji" style="left: 15%; animation-delay: 1s;">⚡</div>
+<div class="emoji" style="left: 25%; animation-delay: 2s;">🏎️</div>
+<div class="emoji" style="left: 35%; animation-delay: 3s;">🔥</div>
+<div class="emoji" style="left: 45%; animation-delay: 4s;">🛡️</div>
+<div class="emoji" style="left: 55%; animation-delay: 5s;">🏆</div>
+<div class="emoji" style="left: 65%; animation-delay: 6s;">💥</div>
+<div class="emoji" style="left: 75%; animation-delay: 7s;">🐉</div>
+<div class="emoji" style="left: 85%; animation-delay: 8s;">⚔️</div>
+<div class="emoji" style="left: 95%; animation-delay: 9s;">🦸‍♂️</div>
 
 <body>
   <main class="container">
@@ -130,12 +146,4 @@
     <section id="chat" class="chat" aria-live="polite"></section>
 
     <form id="chatForm" class="chat-form" onsubmit="return false;">
-      <input id="userInput" autocomplete="off" placeholder="Say something..." />
-      <button id="sendBtn">Send</button>
-    </form>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
+      <input id="userInput" autocomplete=
