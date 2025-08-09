@@ -53,13 +53,14 @@ async function getResponse(text) {
 
   try {
     // Try API first
-    const res = await fetch("http://localhost:3000/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: `Answer in a ridiculous, unserious, sarcastic tone with random jokes: ${text}`
-      })
-    });
+    const res = await fetch("/.netlify/functions/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    message: `Answer in a ridiculous, unserious, sarcastic tone with random jokes: ${text}`
+  })
+});
+
 
     if (!res.ok) throw new Error("Server error");
 
@@ -110,4 +111,5 @@ clearBtn.addEventListener('click', () => {
 });
 
 // Initial greeting
+
 addBubble("Say hi to Chaotic GokuBot! 🤪", 'bot');
